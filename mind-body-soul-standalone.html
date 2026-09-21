@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="Mind, Body and Soul: Biomedical Brain Science Meets AI and Embodied Intelligence — an ICLR workshop bringing together biomedical brain science, AI for brain, and embodied intelligence." />
+  <meta name="theme-color" content="#202124" />
+  <title>Mind, Body and Soul | ICLR Workshop</title>
+  <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeDI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNjNjI1MzkiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzNTVjOWEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xOCA0MWM3LTMgOS0xNSAxNC0xNSA0IDAgNiA2IDggNiAzIDAgNS01IDYtOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2cpIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjE4IiBjeT0iNDEiIHI9IjQiIGZpbGw9IiNjNjI1MzkiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjI2IiByPSI0IiBmaWxsPSIjMzU1YzlhIi8+PGNpcmNsZSBjeD0iNDAiIGN5PSIzMiIgcj0iNCIgZmlsbD0iIzBmOGI4ZCIvPjxjaXJjbGUgY3g9IjQ2IiBjeT0iMjMiIHI9IjQiIGZpbGw9IiNlMGE4MmUiLz48L3N2Zz4=" type="image/svg+xml" />
+  <style>
+
+:root{
+  --bg:#fcfcfd;
+  --text:#18212d;
+  --muted:#5d6b7c;
+  --line:#dde5ef;
+  --panel:#ffffff;
+  --soft:#f4f6fa;
+  --accent:#c62539;
+  --accent-dark:#8c1224;
+  --shadow:0 14px 34px rgba(18,37,63,.08);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter, ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;background:var(--bg);color:var(--text);line-height:1.6}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{width:min(1120px, calc(100% - 2rem));margin:0 auto}
+.wide-container{width:min(1360px, calc(100% - 2rem));margin:0 auto}
+.section{padding:72px 0}
+.section.compact{padding:56px 0}
+.skip-link{position:absolute;left:-9999px;top:auto}
+.skip-link:focus{left:1rem;top:1rem;background:#fff;padding:.75rem 1rem;border-radius:10px;z-index:20}
+.site-header{position:sticky;top:0;z-index:10;background:rgba(252,252,253,.82);backdrop-filter:blur(12px);border-bottom:1px solid rgba(221,229,239,.8)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;width:min(1360px, calc(100% - 2rem));margin:0 auto;padding:14px 0}
+.brand{display:flex;align-items:center;gap:.8rem;font-size:.95rem}
+.brand strong{display:block;line-height:1.1}
+.brand small{display:block;color:var(--muted)}
+.brand-mark{width:38px;height:38px}
+.nav-links{display:flex;gap:1.2rem;align-items:center;color:var(--muted);font-weight:600}
+.nav-links a:hover{color:var(--text)}
+.nav-toggle{display:none;background:none;border:0;padding:0;cursor:pointer}
+.nav-toggle span{display:block;width:24px;height:2px;background:#222;margin:5px 0;border-radius:999px}
+.hero{position:relative;overflow:hidden;padding:88px 0 92px;background:linear-gradient(180deg,#f9fbff 0%,#f2f6fb 100%)}
+.biosignal-background{position:absolute;inset:0;opacity:.55;background:
+radial-gradient(circle at 10% 22%, rgba(255,255,255,.85), transparent 32%),
+radial-gradient(circle at 80% 15%, rgba(255,255,255,.9), transparent 28%),
+linear-gradient(90deg, transparent 0 8%, rgba(198,37,57,.15) 8% 8.3%, transparent 8.3% 100%),
+repeating-linear-gradient(90deg, transparent 0 135px, rgba(24,33,45,.03) 135px 136px),
+repeating-linear-gradient(0deg, transparent 0 135px, rgba(24,33,45,.03) 135px 136px);
+}
+.workshop-title{position:relative;max-width:860px;margin:0 auto;padding:34px 30px 28px;background:rgba(255,255,255,.74);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.9);border-radius:28px;box-shadow:var(--shadow);text-align:center}
+.edition-ribbon{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:.38rem .9rem;font-weight:700;font-size:.88rem;letter-spacing:.02em;margin-bottom:1rem}
+.hero-kicker,.eyebrow{margin:0 0 .55rem;color:var(--accent);font-weight:800;letter-spacing:.12em;text-transform:uppercase;font-size:.78rem}
+h1,h2,h3{line-height:1.15;margin:0 0 .75rem}
+h1{font-size:clamp(2rem,5vw,3.45rem)}
+h2{font-size:clamp(1.7rem,3vw,2.4rem)}
+.title-main,.title-workshop{display:block}
+.hero-meta{margin:.7rem 0;color:var(--muted);font-weight:600}
+.hero-summary{max-width:700px;margin:0 auto 1.25rem;color:#324255}
+.hero-actions{display:flex;justify-content:center;gap:.9rem;flex-wrap:wrap;margin-top:1.2rem}
+.button{display:inline-flex;align-items:center;justify-content:center;padding:.85rem 1.2rem;border-radius:999px;font-weight:700;border:1px solid transparent;transition:.2s ease}
+.button-primary{background:var(--accent);color:#fff}.button-primary:hover{background:var(--accent-dark)}
+.button-secondary{background:#fff;color:var(--text);border-color:var(--line)}
+.hero-facts{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:1.35rem;color:var(--muted);font-size:.95rem}
+.hero-facts span{padding:.55rem .8rem;border-radius:999px;background:rgba(255,255,255,.72);border:1px solid var(--line)}
+.two-column{display:grid;grid-template-columns:1fr 1.2fr;gap:2rem;align-items:start}
+.text-block p{margin-top:0}
+.section-heading,.people-heading{text-align:center;max-width:840px;margin:0 auto 2.25rem}
+.section-heading p:last-child,.people-heading p:last-child{margin-bottom:0}
+.theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.2rem}
+.theme-card,.schedule-card,.topic-list-card,.contact-card{background:var(--panel);border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow)}
+.theme-card{padding:1.35rem}
+.theme-icon{width:50px;height:50px;border-radius:16px;background:var(--soft);display:grid;place-items:center;font-weight:800;color:var(--accent);margin-bottom:.9rem}
+.people-section{padding-top:64px;padding-bottom:68px}
+.people-section-soft{background:var(--soft)}
+.people-count{color:var(--muted);margin:0;font-size:.98rem}
+.people-grid{display:grid;gap:1rem;align-items:stretch;grid-auto-rows:1fr;justify-items:stretch}
+.speakers-grid{grid-template-columns:repeat(7, minmax(0, 1fr))}
+.organizers-grid{grid-template-columns:repeat(8, minmax(0, 1fr))}
+.person-card{background:var(--panel);border:1px solid var(--line);border-radius:16px;box-shadow:0 8px 24px rgba(18,37,63,.06);overflow:hidden;min-width:0;height:100%;display:flex;flex-direction:column;padding:1rem .45rem 1rem}
+.person-card-linked .person-profile{display:flex;flex-direction:column;height:100%;align-items:center}
+.person-card:hover{transform:translateY(-2px);transition:transform .2s ease, box-shadow .2s ease;box-shadow:0 16px 30px rgba(18,37,63,.10)}
+.person-portrait{width:132px;height:132px;min-width:132px;max-width:none;aspect-ratio:1 / 1;object-fit:contain;object-position:50% 50%;background:#f3f6fa;border:1px solid var(--line);border-radius:50%;clip-path:circle(50% at 50% 50%);flex:0 0 132px;padding:8px;margin:.1rem auto 0;overflow:hidden}
+.person-body{padding:.9rem .25rem 0;text-align:center;display:flex;flex-direction:column;align-items:center;gap:.35rem;flex:1;min-height:134px;justify-content:flex-start;width:100%}
+.person-body h3{font-size:.98rem;font-weight:700;letter-spacing:.01em;margin:0;line-height:1.2;min-height:2.4em;display:flex;align-items:flex-start;justify-content:center;width:100%}
+.person-affiliation{margin:0;color:var(--muted);font-size:.86rem;line-height:1.35;min-height:2.7em;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;max-width:100%;width:100%}
+.person-status{margin-top:auto;padding-top:.15rem;font-size:.84rem;font-weight:700;color:#18724d;display:flex;justify-content:center;align-items:center;gap:.42rem}
+.person-status span{width:10px;height:10px;border-radius:999px;background:#2ea66f;display:inline-block}
+.person-status.open{color:#8b5d00}.person-status.open span{background:#e2a23a}
+.schedule-card,.topic-list-card{padding:1.4rem}
+.timeline{list-style:none;padding:0;margin:0;display:grid;gap:1rem}
+.timeline li{padding-left:1rem;border-left:3px solid #d7e1ee}
+.timeline span{display:block;color:var(--muted);font-size:.92rem}
+.inline-link{font-weight:700;color:var(--accent)}
+.check-list{padding-left:1.1rem;margin:.2rem 0 0}
+.tinted{background:#f8fafc}
+.date-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:1rem}
+.date-grid article{padding:1rem;background:#fff;border:1px solid var(--line);border-radius:18px;text-align:center;box-shadow:var(--shadow)}
+.date-grid span{display:block;color:var(--muted);font-size:.92rem;margin-bottom:.35rem}
+.contact-card{padding:1.6rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.footer{padding:22px 0;border-top:1px solid var(--line);background:#fff}
+.footer-grid{display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;color:var(--muted)}
+@media (max-width: 1320px){.organizers-grid{grid-template-columns:repeat(4, minmax(0,1fr))}}
+@media (max-width: 1220px){.speakers-grid{grid-template-columns:repeat(4, minmax(0,1fr))}}
+@media (max-width: 900px){.two-column{grid-template-columns:1fr}.theme-grid,.date-grid{grid-template-columns:1fr 1fr}.nav-links{display:none;position:absolute;top:68px;right:1rem;left:1rem;background:#fff;border:1px solid var(--line);border-radius:18px;padding:1rem;box-shadow:var(--shadow);flex-direction:column;align-items:flex-start}.nav-links.open{display:flex}.nav-toggle{display:block}.speakers-grid,.organizers-grid{grid-template-columns:repeat(2, minmax(0,1fr))}.contact-card{flex-direction:column;align-items:flex-start}}
+@media (max-width: 560px){.hero{padding-top:72px}.workshop-title{padding:28px 20px 24px}.theme-grid,.date-grid,.speakers-grid,.organizers-grid{grid-template-columns:1fr}.button{width:100%}.hero-actions{align-items:stretch}.person-body{min-height:0}.person-affiliation,.person-body h3{min-height:0}}
+
+</style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header" id="top">
+    <nav class="nav" aria-label="Primary navigation">
+      <a class="brand" href="#top" aria-label="Mind, Body and Soul home">
+        <img class="brand-mark" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJnIiB4MT0iMCIgeDI9IjEiPjxzdG9wIHN0b3AtY29sb3I9IiNjNjI1MzkiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMzNTVjOWEiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNjQiIGhlaWdodD0iNjQiIHJ4PSIxNiIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xOCA0MWM3LTMgOS0xNSAxNC0xNSA0IDAgNiA2IDggNiAzIDAgNS01IDYtOSIgZmlsbD0ibm9uZSIgc3Ryb2tlPSJ1cmwoI2cpIiBzdHJva2Utd2lkdGg9IjQiIHN0cm9rZS1saW5lY2FwPSJyb3VuZCIvPjxjaXJjbGUgY3g9IjE4IiBjeT0iNDEiIHI9IjQiIGZpbGw9IiNjNjI1MzkiLz48Y2lyY2xlIGN4PSIzMiIgY3k9IjI2IiByPSI0IiBmaWxsPSIjMzU1YzlhIi8+PGNpcmNsZSBjeD0iNDAiIGN5PSIzMiIgcj0iNCIgZmlsbD0iIzBmOGI4ZCIvPjxjaXJjbGUgY3g9IjQ2IiBjeT0iMjMiIHI9IjQiIGZpbGw9IiNlMGE4MmUiLz48L3N2Zz4=" alt="" />
+        <span>
+          <strong>Mind, Body and Soul</strong>
+          <small>ICLR Workshop</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#topics">Topics</a>
+        <a href="#speakers">Speakers</a>
+        <a href="#organizers">Organizers</a>
+        <a href="#cfp">Call for Papers</a>
+        <a href="#dates">Dates</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero section" aria-labelledby="workshop-title">
+      <div class="biosignal-background" aria-hidden="true"></div>
+      <div class="container hero-title-wrap">
+        <div class="workshop-title">
+          <div class="edition-ribbon">Proposed ICLR2027 Workshop</div>
+          <p class="hero-kicker">Mind · Body · Soul</p>
+          <h1 id="workshop-title">
+            <span class="title-main">Mind, Body and Soul:</span>
+            <span class="title-workshop">Biomedical Brain Science Meets AI and Embodied Intelligence</span>
+          </h1>
+          <p class="hero-meta">Date and venue to be announced</p>
+          <p class="hero-summary">
+            Bridging biomedical neuroscience, AI for understanding and supporting the brain,
+            and intelligent systems that learn through bodies and environments.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#cfp">Call for Papers</a>
+            <a class="button button-secondary" href="#speakers">Meet the speakers</a>
+          </div>
+          <div class="hero-facts" aria-label="Workshop overview">
+            <span><strong>7</strong> speaker places</span>
+            <span><strong>8</strong> organizers</span>
+            <span><strong>3</strong> connected themes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section compact" id="about">
+      <div class="container two-column">
+        <div>
+          <p class="eyebrow">Why this workshop?</p>
+          <h2>Brain science and AI are meeting at a new frontier.</h2>
+        </div>
+        <div class="text-block">
+          <p>
+            Recent advances in biomedical AI, foundation models, neuroimaging, neural data analysis, and embodied agents
+            are reshaping how we study the brain and how we build intelligent systems. Yet the communities working on
+            brain health, brain-inspired AI, and embodied intelligence often develop their methods and benchmarks separately.
+          </p>
+          <p>
+            This workshop creates a shared forum for researchers who want to understand the brain, advance biomedical
+            discovery, and design AI systems that perceive, act, adapt, and learn through interaction with bodies and environments.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="topics">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">Scope</p>
+          <h2>Three connected themes</h2>
+          <p>We welcome work that bridges mechanisms, models, data, and embodied behavior.</p>
+        </div>
+        <div class="theme-grid">
+          <article class="theme-card">
+            <div class="theme-icon">01</div>
+            <h3>Biomedical brain science</h3>
+            <p>
+              Neuroimaging, neural signals, brain disorders, clinical prediction, intervention modeling, biomarkers,
+              and data-driven neuroscience.
+            </p>
+          </article>
+          <article class="theme-card">
+            <div class="theme-icon">02</div>
+            <h3>AI for the brain</h3>
+            <p>
+              Foundation models for neuroscience and biomedicine, multimodal brain data, interpretable AI, simulation,
+              digital twins, and scientific discovery.
+            </p>
+          </article>
+          <article class="theme-card">
+            <div class="theme-icon">03</div>
+            <h3>Embodied intelligence</h3>
+            <p>
+              Brain-inspired agents, perception-action loops, active learning, world models, robotics, cognitive maps,
+              social interaction, and adaptive behavior.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section people-section" id="speakers">
+      <div class="container wide-container">
+        <div class="people-heading">
+          <p class="eyebrow">Confirmed and invited</p>
+          <h2>Invited Speakers</h2>
+          <p class="people-count">3 confirmed · select a portrait to view the profile · 4 additional speaker places</p>
+        </div>
+        <div class="people-grid speakers-grid">
+          <article class="person-card confirmed person-card-linked">
+            <a class="person-profile" href="https://profiles.stanford.edu/176276" target="_blank" rel="noopener noreferrer" aria-label="View Yu Zhang's Stanford profile">
+              <img class="person-portrait" src="https://spnilab.weebly.com/uploads/2/4/9/4/24947261/zhang-yu-155-lehighphoto-small_orig.jpg" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9Ill1IFpoYW5nIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgcng9IjI4IiBmaWxsPSIjZGNlY2ZmIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI3MiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43NSIvPjxwYXRoIGQ9Ik04OCAzMjRjMTYtNjAgNjMtOTIgMTEyLTkyczk2IDMyIDExMiA5MiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43NSIvPjx0ZXh0IHg9IjIwMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4MiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzIyNGI4ZiI+WVo8L3RleHQ+PC9zdmc+" alt="Yu Zhang" loading="eager" decoding="async" />
+              <div class="person-body">
+                <h3>Yu <br />Zhang</h3>
+                <p class="person-affiliation">Stanford University</p>
+                <p class="person-status"><span aria-hidden="true"></span>Confirmed</p>
+              </div>
+            </a>
+          </article>
+          <article class="person-card confirmed person-card-linked">
+            <a class="person-profile" href="https://cogtlab.stanford.edu/people/xinliang-zhou" target="_blank" rel="noopener noreferrer" aria-label="View Xinliang Zhou's Stanford CogT Lab profile">
+              <img class="person-portrait" src="https://cogtlab.stanford.edu/sites/g/files/sbiybj33026/files/styles/large_square/public/media/image/xinliang_photo_0.jpg?h=d6b1e345&amp;itok=CFqnYroD" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlhpbmxpYW5nIFpob3UiPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiByeD0iMjgiIGZpbGw9IiNmOWU0ZTgiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjcyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc1Ii8+PHBhdGggZD0iTTg4IDMyNGMxNi02MCA2My05MiAxMTItOTJzOTYgMzIgMTEyIDkyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc1Ii8+PHRleHQgeD0iMjAwIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjgyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjOGUxZDMzIj5YWjwvdGV4dD48L3N2Zz4=" alt="Xinliang Zhou" loading="eager" decoding="async" />
+              <div class="person-body">
+                <h3>Xinliang <br />Zhou</h3>
+                <p class="person-affiliation">CogT Lab · Stanford University</p>
+                <p class="person-status"><span aria-hidden="true"></span>Confirmed</p>
+              </div>
+            </a>
+          </article>
+          <article class="person-card confirmed person-card-linked">
+            <a class="person-profile" href="https://discovery.nus.edu.sg/3278-juan-helen-zhou/about" target="_blank" rel="noopener noreferrer" aria-label="View Juan Helen Zhou's National University of Singapore profile">
+              <img class="person-portrait" src="https://discovery.nus.edu.sg/3278-juan-helen-zhou/thumbnail" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkhlbGVuIFpob3UiPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiByeD0iMjgiIGZpbGw9IiNlOGY2ZWYiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjcyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc1Ii8+PHBhdGggZD0iTTg4IDMyNGMxNi02MCA2My05MiAxMTItOTJzOTYgMzIgMTEyIDkyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc1Ii8+PHRleHQgeD0iMjAwIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjgyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjMWY3YTRlIj5IWjwvdGV4dD48L3N2Zz4=" alt="Juan Helen Zhou" loading="eager" decoding="async" />
+              <div class="person-body">
+                <h3>Juan (Helen) <br />Zhou</h3>
+                <p class="person-affiliation">National University of Singapore</p>
+                <p class="person-status"><span aria-hidden="true"></span>Confirmed</p>
+              </div>
+            </a>
+          </article>
+          <article class="person-card is-open"><img class="person-portrait" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRiYSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VlZjJmNyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1MDYwNzAiPlRCQTwvdGV4dD48L3N2Zz4=" alt="Speaker to be announced" /><div class="person-body"><h3>Speaker <br />04</h3><p class="person-affiliation">To be announced</p><p class="person-status open"><span aria-hidden="true"></span>Open place</p></div></article>
+          <article class="person-card is-open"><img class="person-portrait" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRiYSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VlZjJmNyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1MDYwNzAiPlRCQTwvdGV4dD48L3N2Zz4=" alt="Speaker to be announced" /><div class="person-body"><h3>Speaker <br />05</h3><p class="person-affiliation">To be announced</p><p class="person-status open"><span aria-hidden="true"></span>Open place</p></div></article>
+          <article class="person-card is-open"><img class="person-portrait" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRiYSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VlZjJmNyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1MDYwNzAiPlRCQTwvdGV4dD48L3N2Zz4=" alt="Speaker to be announced" /><div class="person-body"><h3>Speaker <br />06</h3><p class="person-affiliation">To be announced</p><p class="person-status open"><span aria-hidden="true"></span>Open place</p></div></article>
+          <article class="person-card is-open"><img class="person-portrait" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRiYSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VlZjJmNyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1MDYwNzAiPlRCQTwvdGV4dD48L3N2Zz4=" alt="Speaker to be announced" /><div class="person-body"><h3>Speaker <br />07</h3><p class="person-affiliation">To be announced</p><p class="person-status open"><span aria-hidden="true"></span>Open place</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section people-section people-section-soft" id="organizers">
+      <div class="container wide-container">
+        <div class="people-heading">
+          <p class="eyebrow">Workshop team</p>
+          <h2>Organizers</h2>
+          <p class="people-count">4 confirmed · select a portrait to view the profile · 4 additional organizer places</p>
+        </div>
+        <div class="people-grid organizers-grid">
+          <article class="person-card confirmed person-card-linked">
+            <a class="person-profile" href="https://scholar.google.com/citations?user=lo0_2rMAAAAJ&amp;hl=en" target="_blank" rel="noopener noreferrer" aria-label="View Mingyuan Bai's Google Scholar profile">
+              <img class="person-portrait" src="https://avatars.githubusercontent.com/u/13537788?v=4" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9Ik1pbmd5dWFuIEJhaSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VmZTdmYiIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1ZjNhYTMiPk1CPC90ZXh0Pjwvc3ZnPg==" alt="Mingyuan Bai" loading="eager" decoding="async" />
+              <div class="person-body"><h3>Mingyuan <br />Bai</h3><p class="person-affiliation">RIKEN AIP</p><p class="person-status"><span aria-hidden="true"></span>Confirmed</p></div>
+            </a>
+          </article>
+          <article class="person-card confirmed person-card-linked">
+            <a class="person-profile" href="https://yi-ding-cs.github.io" target="_blank" rel="noopener noreferrer" aria-label="View Yi Ding's homepage">
+              <img class="person-portrait" src="https://raw.githubusercontent.com/yi-ding-cs/yi-ding-cs.github.io/main/myphoto.png" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IllpIERpbmciPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iNDAwIiByeD0iMjgiIGZpbGw9IiNmZmYxZGUiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxNTAiIHI9IjcyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc1Ii8+PHBhdGggZD0iTTg4IDMyNGMxNi02MCA2My05MiAxMTItOTJzOTYgMzIgMTEyIDkyIiBmaWxsPSIjZmZmZmZmIiBvcGFjaXR5PSIwLjc1Ii8+PHRleHQgeD0iMjAwIiB5PSIyMTAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCwgSGVsdmV0aWNhLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjgyIiBmb250LXdlaWdodD0iNzAwIiBmaWxsPSIjOWE2NTFhIj5ZRDwvdGV4dD48L3N2Zz4=" alt="Yi Ding" loading="eager" decoding="async" />
+              <div class="person-body"><h3>Yi <br />Ding</h3><p class="person-affiliation">Nanyang Technological University</p><p class="person-status"><span aria-hidden="true"></span>Confirmed</p></div>
+            </a>
+          </article>
+          <article class="person-card confirmed person-card-linked">
+            <a class="person-profile" href="https://fightlesliefigt.github.io" target="_blank" rel="noopener noreferrer" aria-label="View Shanglin Li's homepage">
+              <img class="person-portrait" src="https://fightlesliefigt.github.io/images/shanglin.png" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlNoYW5nbGluIExpIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgcng9IjI4IiBmaWxsPSIjZTNmNWZmIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI3MiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43NSIvPjxwYXRoIGQ9Ik04OCAzMjRjMTYtNjAgNjMtOTIgMTEyLTkyczk2IDMyIDExMiA5MiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43NSIvPjx0ZXh0IHg9IjIwMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4MiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzBjNmE4ZiI+U0w8L3RleHQ+PC9zdmc+" alt="Shanglin Li" loading="eager" decoding="async" />
+              <div class="person-body"><h3>Shanglin <br />Li</h3><p class="person-affiliation">TU Berlin · BIFOLD · ATR</p><p class="person-status"><span aria-hidden="true"></span>Confirmed</p></div>
+            </a>
+          </article>
+          <article class="person-card confirmed person-card-linked">
+            <a class="person-profile" href="https://bruaristimunha.github.io" target="_blank" rel="noopener noreferrer" aria-label="View Bruno Aristimunha's homepage">
+              <img class="person-portrait" src="https://bruaristimunha.github.io/images/bruno_profile.webp" data-fallback="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IkJydW5vIEFyaXN0aW11bmhhIj48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjQwMCIgcng9IjI4IiBmaWxsPSIjZmRlOGY0Ii8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTUwIiByPSI3MiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43NSIvPjxwYXRoIGQ9Ik04OCAzMjRjMTYtNjAgNjMtOTIgMTEyLTkyczk2IDMyIDExMiA5MiIgZmlsbD0iI2ZmZmZmZiIgb3BhY2l0eT0iMC43NSIvPjx0ZXh0IHg9IjIwMCIgeT0iMjEwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwsIEhlbHZldGljYSwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSI4MiIgZm9udC13ZWlnaHQ9IjcwMCIgZmlsbD0iIzlhMjU2NyI+QkE8L3RleHQ+PC9zdmc+" alt="Bruno Aristimunha" loading="eager" decoding="async" />
+              <div class="person-body"><h3>Bruno <br />Aristimunha</h3><p class="person-affiliation">Yneuro · UC San Diego INC</p><p class="person-status"><span aria-hidden="true"></span>Confirmed</p></div>
+            </a>
+          </article>
+          <article class="person-card is-open"><img class="person-portrait" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRiYSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VlZjJmNyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1MDYwNzAiPlRCQTwvdGV4dD48L3N2Zz4=" alt="Organizer to be announced" /><div class="person-body"><h3>Organizer <br />05</h3><p class="person-affiliation">To be announced</p><p class="person-status open"><span aria-hidden="true"></span>Open place</p></div></article>
+          <article class="person-card is-open"><img class="person-portrait" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRiYSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VlZjJmNyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1MDYwNzAiPlRCQTwvdGV4dD48L3N2Zz4=" alt="Organizer to be announced" /><div class="person-body"><h3>Organizer <br />06</h3><p class="person-affiliation">To be announced</p><p class="person-status open"><span aria-hidden="true"></span>Open place</p></div></article>
+          <article class="person-card is-open"><img class="person-portrait" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRiYSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VlZjJmNyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1MDYwNzAiPlRCQTwvdGV4dD48L3N2Zz4=" alt="Organizer to be announced" /><div class="person-body"><h3>Organizer <br />07</h3><p class="person-affiliation">To be announced</p><p class="person-status open"><span aria-hidden="true"></span>Open place</p></div></article>
+          <article class="person-card is-open"><img class="person-portrait" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgNDAwIiByb2xlPSJpbWciIGFyaWEtbGFiZWw9IlRiYSI+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSI0MDAiIHJ4PSIyOCIgZmlsbD0iI2VlZjJmNyIvPjxjaXJjbGUgY3g9IjIwMCIgY3k9IjE1MCIgcj0iNzIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48cGF0aCBkPSJNODggMzI0YzE2LTYwIDYzLTkyIDExMi05MnM5NiAzMiAxMTIgOTIiIGZpbGw9IiNmZmZmZmYiIG9wYWNpdHk9IjAuNzUiLz48dGV4dCB4PSIyMDAiIHk9IjIxMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsLCBIZWx2ZXRpY2EsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iODIiIGZvbnQtd2VpZ2h0PSI3MDAiIGZpbGw9IiM1MDYwNzAiPlRCQTwvdGV4dD48L3N2Zz4=" alt="Organizer to be announced" /><div class="person-body"><h3>Organizer <br />08</h3><p class="person-affiliation">To be announced</p><p class="person-status open"><span aria-hidden="true"></span>Open place</p></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="cfp"><div class="container two-column"><div><p class="eyebrow">Call for papers</p><h2>We invite submissions across brain, body, and intelligence.</h2><p>Submission details will be announced soon. We welcome empirical, theoretical, clinical, and position papers that connect biomedical brain science with AI and embodied intelligence.</p></div><div class="topic-list-card"><h3>Potential topics include</h3><ul class="check-list"><li>AI for neuroimaging, neural signals, and brain disease modeling</li><li>Foundation models and multimodal learning for biomedical brain science</li><li>Interpretable and reliable AI for brain discovery and brain health</li><li>Brain-inspired representation learning, memory, and reasoning</li><li>Embodied agents, robotics, active perception, and world models</li><li>Social cognition, multi-agent interaction, and human-AI systems</li><li>Benchmarks, datasets, evaluation, ethics, and safety</li></ul></div></div></section>
+    <section class="section compact tinted" id="dates"><div class="container"><div class="section-heading"><p class="eyebrow">Important dates</p><h2>Timeline</h2><p>All dates are placeholders and should be updated after the ICLR workshop schedule is finalized.</p></div><div class="date-grid"><article><span>Submission opens</span><strong>TBD</strong></article><article><span>Submission deadline</span><strong>TBD</strong></article><article><span>Acceptance notification</span><strong>TBD</strong></article><article><span>Camera-ready deadline</span><strong>TBD</strong></article><article><span>Workshop date</span><strong>TBD</strong></article></div></div></section>
+    <section class="section contact-section" id="contact"><div class="container contact-card"><div><p class="eyebrow">Contact</p><h2>Join the conversation.</h2><p>For speaker nominations, organizer updates, sponsorship, or submission questions, please contact the organizing team.</p></div><a class="button button-primary" href="mailto:contact@example.com">Email organizers</a></div></section>
+  </main>
+  <footer class="footer"><div class="container footer-grid"><p>© <span id="year"></span> Mind, Body and Soul Workshop.</p><p>Biomedical Brain Science · AI for Brain · Embodied Intelligence</p></div></footer>
+  <script>
+
+document.addEventListener('DOMContentLoaded', () => {
+  const year = document.getElementById('year');
+  if (year) year.textContent = new Date().getFullYear();
+
+  const toggle = document.querySelector('.nav-toggle');
+  const navLinks = document.querySelector('.nav-links');
+  if (toggle && navLinks) {
+    toggle.addEventListener('click', () => {
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('open');
+    });
+  }
+
+  document.querySelectorAll('img[data-fallback]').forEach((img) => {
+    img.addEventListener('error', () => {
+      const fallback = img.getAttribute('data-fallback');
+      if (fallback && img.src !== fallback) img.src = fallback;
+    }, { once: true });
+  });
+});
+
+</script>
+</body>
+</html>
